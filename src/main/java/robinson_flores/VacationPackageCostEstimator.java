@@ -1,3 +1,5 @@
+// Copyright (C) 2020
+// All rights reserved
 package robinson_flores;
 
 import java.util.Arrays;
@@ -14,12 +16,25 @@ class VacationPackageCostEstimator {
     private static final int additionalCostParis = 500;
     private static final int additionalCostNewYorkCity = 600;
 
+	/**
+	 * Crea un nuevo objeto VacationPackageCostEstimator con los parámetros especificados.
+	 *
+	 * @param destination  El destino de la vacación.
+	 * @param numTravelers El número de viajeros.
+	 * @param duration     La duración de la vacación en días.
+	 */    
     public VacationPackageCostEstimator(String destination, int numTravelers, int duration) {
         this.destination = destination;
         this.numTravelers = numTravelers;
         this.duration = duration;
     }
 
+	/**
+	 * Calcula el costo total del paquete de vacaciones.
+	 *
+	 * @return El costo total del paquete de vacaciones si los datos de entrada son válidos,
+	 *         de lo contrario, devuelve -1.
+	 */
     public int calculateTotalCost() {
         if (!isValidInput()) {
             return -1;
@@ -52,30 +67,22 @@ class VacationPackageCostEstimator {
         return totalCost;
     }
     
-    ////
-    static boolean isStrint(String cadena)
-	{
-	
-		for (int i = 0; i < cadena.length(); i++)
-		{
-			char caracter = cadena.toUpperCase().charAt(i);
-			int valorASCII = (int)caracter;
-			if (valorASCII != 165 && (valorASCII < 65 || valorASCII > 90))
-				return false; //Se ha encontrado un caracter que no es letra
-		}
- 
-		//Terminado el bucle sin que se haya retornado false, es que todos los caracteres son letras
-		return true;
-	}
-    
+	/**
+	 * Verifica si una cadena contiene solo letras.
+	 *
+	 * @param cadena La cadena a verificar.
+	 * @return true si la cadena contiene solo letras, de lo contrario, false.
+	 */
     static boolean containsOnlyLetters(String cadena) {
         return Pattern.matches("[a-zA-Z]+", cadena);
     }
 
-    
-    ////
-    
-    
+  
+    /**
+     * Verifica si la entrada ingresada por el usuario es válida.
+     *
+     * @return true si la entrada es válida, de lo contrario, false.
+     */
     private boolean isValidInput() {
     	
     	

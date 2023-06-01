@@ -1,13 +1,20 @@
+// Copyright (C) 2020
+// All rights reserved
 package robinson_flores;
 import java.util.Scanner;
 import robinson_flores.VacationPackageCostEstimator;
 //CHECKSTYLE:OFF
-public class main {
+public class Main {
+	/**
+	 * Método principal del programa.
+	 *
+	 * @param args Los argumentos de línea de comandos.
+	 */
     public static void main(String[] args) {
 //CHECKSTYLE:ON
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingrese el destino de la vacacion (Paris o New York City): ");
+        System.out.print("Ingrese el destino de la vacacion (Paris o New York City have aditional cost): ");
         String destination = scanner.nextLine();
 
         System.out.print("Ingrese el número de viajeros: ");
