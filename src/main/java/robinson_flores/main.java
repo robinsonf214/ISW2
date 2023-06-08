@@ -22,9 +22,16 @@ public class Main {
 
         System.out.print("Ingrese la duración de la vacación en dias: ");
         int duration = scanner.nextInt();
+        
+        System.out.print("Ingrese paquete vacacional: \n 1.- All-Inclusive Package - $200 per traveler"
+        		+ "\n 2.-  Adventure Activities Package - $150 per traveler"
+        		+ "\n 3.-  Spa and Wellness Package - $100 per traveler"
+        		+ "\n 0.- no aditional package");
+        
+        int vacationpackage = scanner.nextInt();
 
         VacationPackageCostEstimator vacationPackage = new VacationPackageCostEstimator(destination, numTravelers,
-                duration);
+                duration, vacationpackage);
         int totalCost = vacationPackage.calculateTotalCost();
 
         if (totalCost == -1) {

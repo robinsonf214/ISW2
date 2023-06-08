@@ -11,6 +11,7 @@ class VacationPackageCostEstimator {
     private int numTravelers;
     private int duration;
     private int baseCost = 1000;
+    private int vacationpackage;
 
     private static final List<String> popularTouristSpots = Arrays.asList("Paris", "New York City");
     private static final int additionalCostParis = 500;
@@ -23,10 +24,11 @@ class VacationPackageCostEstimator {
 	 * @param numTravelers El número de viajeros.
 	 * @param duration     La duración de la vacación en días.
 	 */    
-    public VacationPackageCostEstimator(String destination, int numTravelers, int duration) {
+    public VacationPackageCostEstimator(String destination, int numTravelers, int duration, int vacationpackage) {
         this.destination = destination;
         this.numTravelers = numTravelers;
         this.duration = duration;
+        this.vacationpackage = vacationpackage;
     }
 
 	/**
@@ -63,7 +65,19 @@ class VacationPackageCostEstimator {
         if (duration > 30 || numTravelers == 2) {
             totalCost -= 200;
         }
-
+        
+        
+        if (vacationpackage == 1) {
+        	totalCost += numTravelers*200;
+        }
+        if (vacationpackage == 2) {
+        	totalCost += numTravelers*150;
+        }
+        if (vacationpackage == 3) {
+        	totalCost += numTravelers*100;
+        }
+        
+        
         return totalCost;
     }
     
@@ -87,7 +101,7 @@ class VacationPackageCostEstimator {
     	
     	
         if (containsOnlyLetters(destination)) {
-            return numTravelers > 0 && numTravelers <= 80 && duration > 0;
+            return numTravelers > 0 && numTravelers <= 80 && duration > 0 && vacationpackage >= 0 && vacationpackage < 4;
         }
     
         return false;
