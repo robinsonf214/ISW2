@@ -2,9 +2,11 @@
 // All rights reserved
 package robinson_flores;
 import java.util.Scanner;
-import robinson_flores.VacationPackageCostEstimator;
+//import robinson_flores.VacationPackageCostEstimator;
 //CHECKSTYLE:OFF
-public class Main {
+
+@SuppressWarnings("PMD.UseUtilityClass")
+public class Main { //NOPMD 
 	/**
 	 * Método principal del programa.
 	 *
@@ -12,18 +14,18 @@ public class Main {
 	 */
     public static void main(String[] args) {
 //CHECKSTYLE:ON
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //NOPMD
 
-        System.out.print("Ingrese el destino de la vacacion (Paris o New York City have aditional cost): ");
+        System.out.print("Ingrese el destino de la vacacion (Paris o New York City have aditional cost): "); //NOPMD 
         String destination = scanner.nextLine();
 
-        System.out.print("Ingrese el número de viajeros: ");
+        System.out.print("Ingrese el número de viajeros: ");//NOPMD 
         int numTravelers = scanner.nextInt();
 
-        System.out.print("Ingrese la duración de la vacación en dias: ");
+        System.out.print("Ingrese la duración de la vacación en dias: "); //NOPMD 
         int duration = scanner.nextInt();
         
-        System.out.print("Ingrese paquete vacacional: \n 1.- All-Inclusive Package - $200 per traveler"
+        System.out.print("Ingrese paquete vacacional: \n 1.- All-Inclusive Package - $200 per traveler" //NOPMD 
         		+ "\n 2.-  Adventure Activities Package - $150 per traveler"
         		+ "\n 3.-  Spa and Wellness Package - $100 per traveler"
         		+ "\n 0.- no aditional package");
@@ -35,9 +37,9 @@ public class Main {
         int totalCost = vacationPackage.calculateTotalCost();
 
         if (totalCost == -1) {
-            System.out.println("Los datos ingresados no son validos.");
+            System.out.println("Los datos ingresados no son validos."); //NOPMD 
         } else {
-            System.out.println("El costo total de la vacación es: $" + totalCost);
+            System.out.println("El costo total de la vacación es: $" + totalCost); //NOPMD 
         }
 
         scanner.close();

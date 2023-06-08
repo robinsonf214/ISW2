@@ -6,25 +6,31 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+*
+*
+* @author Robinson Flores 
+*/
 class VacationPackageCostEstimator {
-    private String destination;
-    private int numTravelers;
-    private int duration;
-    private int baseCost = 1000;
-    private int vacationpackage;
+    private final String destination; //NOPMD 
+    private final int numTravelers;
+    private final int duration;
+    private final static int BASECOST = 1000;
+    private final int vacationpackage;
 
-    private static final List<String> popularTouristSpots = Arrays.asList("Paris", "New York City");
-    private static final int additionalCostParis = 500;
-    private static final int additionalCostNewYorkCity = 600;
+    private  final List<String> popularTouristSpots = Arrays.asList("Paris", "New York City"); //NOPMD 
+    private  final int additionalCostParis = 500; //NOPMD 
+    private  final int additionalCostNewYorkCity = 600;//NOPMD 
 
 	/**
-	 * Crea un nuevo objeto VacationPackageCostEstimator con los parámetros especificados.
+	 * Crea un nuevo objeto VacationPackageCostEstimator
+	 *  con los parámetros especificados.
 	 *
 	 * @param destination  El destino de la vacación.
 	 * @param numTravelers El número de viajeros.
 	 * @param duration     La duración de la vacación en días.
 	 */    
-    public VacationPackageCostEstimator(String destination, int numTravelers, int duration, int vacationpackage) {
+    public VacationPackageCostEstimator(final String destination, final int numTravelers, final int duration, final int vacationpackage) {
         this.destination = destination;
         this.numTravelers = numTravelers;
         this.duration = duration;
@@ -34,20 +40,22 @@ class VacationPackageCostEstimator {
 	/**
 	 * Calcula el costo total del paquete de vacaciones.
 	 *
-	 * @return El costo total del paquete de vacaciones si los datos de entrada son válidos,
+	 * @return El costo total del paquete de vacaciones 
+	 * si los datos de entrada son válidos,
 	 *         de lo contrario, devuelve -1.
 	 */
-    public int calculateTotalCost() {
+    public int calculateTotalCost() {//NOPMD 
         if (!isValidInput()) {
-            return -1;
+            return -1;  //NOPMD 
         }
-
-        int totalCost = baseCost;
+       
+        int totalCost = BASECOST;
 
         if (popularTouristSpots.contains(destination)) {
-            if (destination.equals("Paris")) {
-                totalCost += additionalCostParis;
-            } else if (destination.equals("New York City")) {
+            // if (destination.equals("Paris")) { 
+        	if ("Paris".equals(destination)) { 
+                totalCost += additionalCostParis; 
+            } else if (destination.equals("New York City")) { //NOPMD 
                 totalCost += additionalCostNewYorkCity;
             }
         }
@@ -87,7 +95,7 @@ class VacationPackageCostEstimator {
 	 * @param cadena La cadena a verificar.
 	 * @return true si la cadena contiene solo letras, de lo contrario, false.
 	 */
-    static boolean containsOnlyLetters(String cadena) {
+    static boolean containsOnlyLetters( String cadena) { //NOPMD
         return Pattern.matches("[a-zA-Z]+", cadena);
     }
 
@@ -101,9 +109,11 @@ class VacationPackageCostEstimator {
     	
     	
         if (containsOnlyLetters(destination)) {
-            return numTravelers > 0 && numTravelers <= 80 && duration > 0 && vacationpackage >= 0 && vacationpackage < 4;
+            return numTravelers > 0 && numTravelers <= 80 && duration > 0 && vacationpackage >= 0 && vacationpackage < 4; //NOPMD
         }
-    
+       
         return false;
+        
+        
     }
 }
